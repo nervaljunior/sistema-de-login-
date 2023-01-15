@@ -11,7 +11,8 @@ export function Home() {
   const[email,setEmail]=useState('');
   const[password,setPassword]=useState('');
   const[text,setText]=useState('');
-  const[error,setError]=useState('');
+  const[error,setError]=useState(null);
+  const[requesting,setRequesting]= useState(false); 
 
   const handleEmail=(event)=>{
     const {value} = event.target;
@@ -31,12 +32,19 @@ export function Home() {
   const handleSubmit=()=>{
     console.log('submited');
 
+    setError(null);
+    setRequesting(true);
+
     let values = {email:email,password:password, text:text};
     Login(values)
-    .then(()=>{})
+    .then(()=>{
+      console.log("sucess")
+    })
     .catch((error)=>{ 
       console.log(error);
       setError(error)
+    })
+    .finally(() => {setRequesting(false);
     });
   };
 
@@ -78,7 +86,7 @@ export function Home() {
 
       placeholder='difite sua senha' />
 
-      <button disabled={email==='' || password.length < 6 } onClick= {handleSubmit} >adicionar</button>
+      <button disabled={email==='' || password.length < 6  || requesting  } onClick= {handleSubmit} >adicionar</button>
 
       </div>
       
