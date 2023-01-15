@@ -5,8 +5,44 @@
 
 }
 
-.container h1 {
+.container header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    margin-left: 250px;
+
+}
+
+.container header {
+    width: 50%;
     margin: 84px 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+
+}
+
+.container header div{
+    display: flex;
+    align-items: center;
+    left: 200px;
+
+
+}
+
+.ball{
+    position: relative;
+    animation-name: bolinha;
+    animation-duration: 20s;
+}
+
+@keyframes bolinha{
+   
+}
+
+.container h1 {
+    margin: 84px 0 0px;
 
 }
 
@@ -37,9 +73,6 @@
     cursor: pointer;
     font-size: 16px;
     transition: filter 0.3;
-
-
-
 }
 
 .container label:hover{
